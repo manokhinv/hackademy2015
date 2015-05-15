@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student View</title>
+    <script type="text/javascript" language="javascript">
+		
+		var boxes = [];
+		
+		function updatePositions() {
+			
+			for (index = 0; index < boxes.length; index++) {
+				if (boxes[index].y >= 300) {
+					boxes[index].v = 0 - boxes[index].v;
+					boxes[index].y = 300 - 1;
+				} else {
+					boxes[index].y = boxes[index].y + boxes[index].v;
+					boxes[index].v += 1;
+				}
+			}
+		}
+		
+		function mainLoop() {
+			console.log("Mail loop called");
+			
+			var canvas = document.getElementById("canvas1");
+			var ctx = canvas.getContext("2d");
+			//ctx.clearRect(0,0,500,300);
+			
+			var width = 30;
+			var height = 30;
+			
+			for (index = 0; index < boxes.length; index++) {
+				var x = boxes[index].x;
+				var y = boxes[index].y;
+				ctx.fillRect(x - (width/2), y - (height/2), width, height);
+			}
+			
+			updatePositions();
+		}
+		
+		function canvasClicked(e) {
+			var canvas = document.getElementById("canvas1");
+			var x = e.clientX + document.body.scrollLeft - canvas.offsetLeft;
+			var y = e.clientY + document.body.scrollTop - canvas.offsetTop;
+			boxes.push({"x":x,"y":y});
+			var width = 30;
+			var height = 30;
+			var ctx = canvas.getContext("2d");
+			ctx.fillRect(x - (width/2), y - (height/2),width,height);
+		}
+		
+		/*function greet() {
+			var name_from_input = document.getElementById("get_name");
+
+			var content = document.getElementById("content");
+			content.textContent = "Nice to meet you " + name_from_input.value;
+		}*/
+		function onloadfunction() {
+			//var submit_button = document.getElementById("submit_button");
+			//submit_button.onclick = greet;
+			
+			var canvas = document.getElementById("canvas1");
+			canvas.onclick = canvasClicked;
+			window.setInterval(mainLoop,100);
+		}
+		//console.log("Yep");
+		window.onload = onloadfunction;
+	</script>
+</head>
+<body>
+	<h1>Student Database</h1>
+    <!--<p>Student Name: <span id="content"></span></p>
+	<input id="get_name" type="text" />
+	<input id="submit_button" type="button" value="Submit" /><br />-->
+	<canvas id="canvas1" width="500" height="300" style="background: #EEE">
+</body>
+</html>

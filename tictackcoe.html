@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<title>Tic-Tac-Toe</title>
+        <link href="http://fonts.googleapis.com/css?family=Lato:700" media="all" rel="stylesheet" type="text/css" />
+        <link href="ttt.css" type="text/css" media="all" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="ttt.js"></script>
+    </head>
+    <body>
+    	<div id="board">
+        	<table>
+            	<caption class="boardcaption">
+                	Tic-Tac-Toe <br /> <span id="turn">X</span>'s Turn <br />
+                    <button id="reset_button" onClick="reset_board()">Reset Board</button>
+                </caption>
+                <tr>
+                	<td class="boardcell marker" id="0_0"><span></span></td>
+                	<td class="boardcell marker" id="0_1"><span></span></td>
+                	<td class="boardcell marker" id="0_2"><span></span></td>
+                </tr>
+                <tr>
+                	<td class="boardcell marker" id="1_0"><span></span></td>
+                	<td class="boardcell marker" id="1_1"><span></span></td>
+                	<td class="boardcell marker" id="1_2"><span></span></td>
+                </tr>
+                <tr>
+                	<td class="boardcell marker" id="2_0"><span></span></td>
+                	<td class="boardcell marker" id="2_1"><span></span></td>
+                	<td class="boardcell marker" id="2_2"><span></span></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
