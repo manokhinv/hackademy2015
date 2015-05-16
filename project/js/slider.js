@@ -28,3 +28,18 @@ jQuery(document).ready(function($){
 		}
 	});
 });
+// Panel 3
+jQuery(document).ready(function($){
+	//open the lateral panel
+	$('.tips-a').on('click', function(event){
+		event.preventDefault();
+		$('.cd-panel-tips').addClass('is-visible');
+	});
+	//close the lateral panel
+	$('.cd-panel-tips').on('click', function(event){
+		if( $(event.target).is('.cd-panel-tips') || $(event.target).is('.cd-panel-close') ) {
+			$('.cd-panel-tips').removeClass('is-visible');
+			event.preventDefault();
+		}
+	});
+});
