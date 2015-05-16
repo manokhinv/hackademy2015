@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Conversion Wars</title>
+    <title>Conversion Wars!</title>
 
-    <meta charset="utf-8"> 
-    <meta name="Description" content="" />
+    <meta charset="utf-8">
+    <meta name="Description" content="Conversion Wars: Adaptation of Go-Fish Card Game for Fraction<->Decimal<->Percentage Conversions." />
 
     <link rel="stylesheet" href="css/main.css" type="text/css" />
-    
     <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
- 	<link rel="icon" type="image/png" href="http://www.google.com/s2/favicons?domain=www.mansd.org">
+
+    <link rel="icon" type="image/png" href="http://www.google.com/s2/favicons?domain=www.mansd.org">
+
     <script>
         var category = 'Conversion Wars';
     </script>
@@ -20,18 +21,19 @@
     <div id="wrapper">
         <div id="page">
 
-            <div id="header">
-                <div id="title">
-                     <h1>Conversion Wars</h1>
-                </div>
+
+          <div id="header">
+                 <div id="title">
+                      <h1>Conversion Wars</h1>
+                 </div>
 
                 <div id="menucontainer">
                     <ul id="menu">
                         <li><a title="Start a new game of Go Fish against the computer" href="#newgame">New Game</a></li>
-                        
+
                         <li> | <a title="Rules of Go Fish" href="#rules">Rules</a></li>
                         <li> | <a title="About this version of Go Fish" href="#about">About</a></li>
-                        
+
                         <li class="stats-link"> | <a title="See your statistics" href="/statistics/">Statistics</a></li>
                         <li class="stats-link"> | <a title="Calc" href="" onClick="window.open('calc.html', '_blank', 'toolbar=0,location=0,menubar=0,height=525,width=962,resizable=false');">Calculator</a></li>
                     </ul>
@@ -40,7 +42,7 @@
             <div id="pagecontent">
                 <div id="board" class="board">
                     <div id="play-page" class="inner-page">
-                        
+
                             <div id="left-player" class="avatar">
                                 <div style="background-position: -275px 0px"></div>
                                 <small>Bob</small>
@@ -52,7 +54,7 @@
                                 <small>Alice</small>
                             </div>
                             <div id="right-player-bubble" class="bubble"><p><span></span></p></div>
-                            
+
                             <div id="top-player" class="avatar">
                                 <div></div>
                                 <small>Computer</small>
@@ -63,8 +65,10 @@
                                 <div></div>
                                 <small>You</small>
                             </div>
-                            <div id="bottom-player-bubble" class="bubble"><p><span></span></p></div>                         
+
+                            <div id="bottom-player-bubble" class="bubble"><p><span></span></p></div>
                             <!--<a href="javascript:void(0);" id="open-player-picker">Change player image...</a>-->
+
                             <div id="change-player" class="dialog">
                                 <h3>Choose your player image</h3>
                                 <div id="player-picker"></div>
@@ -74,20 +78,20 @@
                                     <button id="next-image" href="javascript:void(0);">Next &gt;&gt;</button>
                                 </div>
                             </div>
-                            
-                            
+
+
                                 <select id="player-count">
                                     <option value="2">2 Players</option>
                                     <option value="3">3 Players</option>
                                     <option value="4">4 Players</option>
                                 </select>
-                            
-                            
-                        
+
+
+
 
                         <div id="messageBox"><p>Click Deal to start the game.</p></div>
 
-                        
+
                             <div id="fish-button">Pick a card</div>
                             <div id="deal"><button class="big">Deal</button></div>
                             <div id="askdiv">
@@ -108,7 +112,7 @@
                             </div>
 
 
-                        
+
                             <!-- Win and lose screens -->
                             <div id="results-div">
                                 <div class="dialog results" id="result-box">
@@ -124,39 +128,39 @@
                                     </div>
                                 </div>
                             </div>
-                        
+
                     </div>
                 </div>
-            
+
                 <a name="rules"></a>
                 <div id="rules">
-                
+
                     <h2>Conversion War Rules</h2>
-                                    
+
                     <p>In this game of Conversion Wars you and your opponent will play against each other to solve mathematical problems and become familiar with decimals, percentages, fractions, and equations to pull the concepts together. Each correct conversion made per turn is one point earned. In the event of both opponents having the right answer in any form the opponents will enter a war where they will need to solve an equation and give the answer as a decimal, percent, and simplified fraction. The player who solves it correctly gets the cards as well as 1 point and the player who doesn't keeps their card loses their card.</p>
                     <br />
                     <br />
-                    
+
                     <h2>Objective and Scoring</h2>
                     <p>To collect as many "books" as possible. A book is four cards of the same rank. The player with 15 books at the end of the game wins.</p>
                 	<br />
                     <br />
-                    
+
                     <h2>Drawing New Cards</h2>
                     <p>Both players must always have 5 cards so, if a card is drawn and used, that player must pick up a new card from the center scattered pile.</p>
                     <p>If there are three or four players then it can happen that one of them finishes their cards and there are no cards left in the pile for him to draw. In that case he is out of the game and will simply have to wait while the remaining players finish the game.</p>
                 	<br />
                     <br />
-                    
+
                     <h2>New Hampshire Common Core Standards</h2>
                     <ul>
                         <li> Understand decimal notation for fractions, and compare decimal fractions.</li>
                         <li> Use equivalent fractions as a strategy to add and subtract fractions.</li>
                         <li> Apply and extend previous understandings of multiplication and division to multiply and divide fractions.</li>
                     </ul>
-                    
+
                 </div>
-                
+
                 <a name="about"></a>
                 <div id="about">
                     <h2>About</h2>
@@ -166,7 +170,7 @@
                     <p><a href="#play" class="playlink">Back to game</a></p>
                 </div>
             </div>
-            
+
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             <script>
                 if (!window.jQuery) {
