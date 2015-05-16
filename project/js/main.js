@@ -241,7 +241,7 @@ function setupPlayerPicker() {
         $('#player-picker').sprite(img['bottom-player'], 120);
     });
     $('#save-image').click(function() {
-        $('#bottom-player div').sprite(img['bottom-player'], 80);
+        $('#bottom-player div').sprite(img['bottom-player'], 50);
         $('#change-player').hide();
         $('#bottom-player-win').sprite(img['bottom-player'], 120);
         $('#messageBox').show();
@@ -322,7 +322,7 @@ $(function() {
     if ((location.search || '').match(/screenshot/)) {
         createScreenshot();
     }
-    $('#bottom-player div').sprite(img['bottom-player'], 80);
+    $('#bottom-player div').sprite(img['bottom-player'], 50);
     for (var key in img) {
         $('#' + key + '-win').sprite(img[key], 120);
     }
@@ -619,11 +619,11 @@ Card.prototype = {
             "c": 'club'
         };
         var specialCards = {
-            11: 'jack',
-            12: 'queen',
-            13: 'king',
-            1: 'ace',
-            14: 'ace'
+            11: '1/50',
+            12: '0.48',
+            13: '15/18',
+            1: '250%',
+            14: '5/2'
         }
         this.suitName = sorts[this.suit];
         if (specialCards[rank]) {
@@ -638,15 +638,15 @@ Card.prototype = {
         return this.shortName;
     },
     rankName: function() {
-        var names = [null, null, 'a two', 'a three', 'a four', 'a five', 'a six', 'a seven', 'an eight', 'a nine', 'a ten', 'a jack', 'a queen', 'a king', 'an ace'];
+        var names = [null, null, '3/5', '8/12', '17%', '0.5', '4/20', '1/3', '18/21', '3/30', '9/12', '1/50', '20/42', '15/18', '5/2'];
         return names[this.rank];
     },
     shortRankName: function() {
-        var names = [null, null, 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace'];
+        var names = [null, null, '3/5', '8/12', '17%', '0.5', '4/20', '33%', '86%', '3/30', '0.75', '1/50', '0.48', '0.56', '5/2'];
         return names[this.rank];
     },
     sign: function() {
-        var ranks = ['', 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+        var ranks = ['', '2.5', '3/5', '8/12', '17%', '0.5', '4/20', '1/3', '18/21', '3/30', '9/12', '1/50', '20/42', '15/18', '5/2'];
         var suits = {
             h: '&hearts;',
             s: '&spades;',
@@ -1118,7 +1118,7 @@ GoFish.prototype = {
     cardCount: 5,
     sortType: 'rank',
     canSelectCards: false,
-    defaultPlayerCount: 3,
+    defaultPlayerCount: 4,
     canChangePlayerCount: true,
     state: -1,
     init: function() {
@@ -1382,41 +1382,41 @@ GoFish.prototype = {
                 var me = this;
                 setTimeout(function() {
                     me.nextPlayerTurn();
-                }, 2500);
+                }, 1500);
             } else {
                 asker.goFish();
             }
         }, this.current);
     },
     names: {
-        2: 'a two',
-        3: 'a three',
-        4: 'a four',
-        5: 'a five',
-        6: 'a six',
-        7: 'a seven',
-        8: 'an eight',
-        9: 'a nine',
-        10: 'a ten',
-        11: 'a jack',
-        12: 'a queen',
-        13: 'a king',
-        14: 'an ace'
+        2: "3/5",
+        3: "2/3",
+        4: "1/6",
+        5: "1/2",
+        6: "1/5",
+        7: "1/3",
+        8: "6/7",
+        9: "1/10",
+        10: "3/4",
+        11: "1/50",
+        12: "10/21",
+        13: "5/4",
+        14: "2 and 1/2"
     },
     pluralnames: {
-        2: 'twos',
-        3: 'threes',
-        4: 'fours',
-        5: 'fives',
-        6: 'sixes',
-        7: 'sevens',
-        8: 'eights',
-        9: 'nines',
-        10: 'tens',
-        11: 'jacks',
-        12: 'queens',
-        13: 'kings',
-        14: 'aces'
+        2: "3/5's",
+        3: "2/3's",
+        4: "1/6's",
+        5: "1/2's",
+        6: "1/5's",
+        7: "1/3's",
+        8: "6/7's",
+        9: "1/10's",
+        10: "3/4's",
+        11: "1/50's",
+        12: "10/21's",
+        13: "5/4's",
+        14: "2 and 1/2's"
     },
     fish: function(player, card) {
         if (player !== this.current.asker) {
@@ -1511,7 +1511,7 @@ ComputerPlayer.prototype = {
 var UNKNOWN = -1;
 var FINISHED = -2;
 ComputerPlayer.prototype.extend({
-    thinkTime: 2000,
+    thinkTime: 1000,
     lastMoves: [],
     play: function() {
         var cards = {};
@@ -1595,7 +1595,7 @@ ComputerPlayer.prototype.extend({
             if (me.lastMoves.length > 3) {
                 me.lastMoves.splice(0, 1);
             }
-        }, this.thinkTime / 2);
+        }, this.thinkTime / 1);
     },
     requestRank: function(asker, rank) {
         var me = this;
@@ -1892,7 +1892,7 @@ HumanPlayer.prototype.extend({
         this.state = states.ASKED;
         this.asker = asker;
         this.askedRank = rank;
-        this.game.message('If you have any ' + this.game.pluralnames[rank] + ', click on them to give them to ' + asker.name + '. If not, press the Go Fish button.');
+        this.game.message('If you have any ' + this.game.pluralnames[rank] + ', click on them to give them to ' + asker.name + '. If not, press the Pick a Card button.');
     },
     goFish: function() {
         this.game.message('Click a card in the pile to fish.');
@@ -1985,8 +1985,8 @@ HumanPlayer.prototype.extend({
     notifyGiveCards: function(asker, askee, cards) {}
 });
 var TABLE_SIZE = {
-    width: 700,
-    height: 600
+    width: 750,
+    height: 650
 };
 var CARD_SIZE = {
     width: 71,
@@ -2169,7 +2169,7 @@ function showCards(cards, position, speed) {
         for (var i = 0; i < cards.length; i++) {
             cards[i].showCard(position);
         }
-    }, speed || (ANIMATION_SPEED / 2));
+    }, speed || (ANIMATION_SPEED / 1));
 }
 
 function hideCards(cards, position, speed) {
@@ -2177,7 +2177,7 @@ function hideCards(cards, position, speed) {
         for (var i = 0; i < cards.length; i++) {
             cards[i].hideCard(position);
         }
-    }, speed || (ANIMATION_SPEED / 2));
+    }, speed || (ANIMATION_SPEED / 1));
 }
 var webRenderer = {
     extend: function(type) {
@@ -2380,7 +2380,7 @@ var webRenderer = {
             var halfTrickHeight = trickHeight / 2;
             var halfTrickWidth = trickWidth / 2;
             var overlay = 10;
-            var playerSize = 80;
+            var playerSize = 50;
             var sidePlayerTop = 250;
             var edgeDistance = playerMargin + (playerSize - trickHeight) / 2;
             var cardDistance = (TABLE_SIZE.width / 2) + playerSize / 2 + e.player.tricks.length * overlay;
@@ -2547,14 +2547,32 @@ webRenderer.extend({
         $(bubble + ' img').hide();
         $(bubble + ' div').show().css('background-position', (-img[e.askee.id] * 35) + 'px 0px');
         var rankText = e.rank.toString();
-        if (rankText == '11') {
-            rankText = 'J';
+        if (rankText == '2') {
+			rankText = '60%';
+		} else if (rankText == '3') {
+            rankText = '8/12';
+		} else if (rankText == '4') {
+            rankText = '0.17';
+		} else if (rankText == '5') {
+            rankText = '4/8';
+		} else if (rankText == '6') {
+            rankText = '1/5';
+		} else if (rankText == '7') {
+            rankText = '33%';
+		} else if (rankText == '8') {
+            rankText = '0.86';
+		} else if (rankText == '9') {
+            rankText = '3/30';
+		} else if (rankText == '10') {
+            rankText = '75%';
+		} else if (rankText == '11') {
+            rankText = '1/50';
         } else if (rankText == '12') {
-            rankText = 'Q';
+            rankText = '0.48';
         } else if (rankText == '13') {
-            rankText = 'K';
+            rankText = '5/4';
         } else if (rankText == '14') {
-            rankText = 'A';
+            rankText = '5/2';
         }
         $(bubble + ' p span').text(rankText + '?');
         $(bubble).show();
@@ -2623,7 +2641,7 @@ WebCardGame.prototype = {
     },*/
     createComputerPlayers: function() {
         var showCards = document.location.search == "?YoureGameSucks";
-        topPlayer = new ComputerPlayer('Bill');
+        topPlayer = new ComputerPlayer('Computer');
         topPlayer.top = TOP_PLAYER_TOP;
         topPlayer.left = TOP_PLAYER_LEFT;
         topPlayer.align = HORIZONTAL;
@@ -2632,7 +2650,7 @@ WebCardGame.prototype = {
         topPlayer.showCards = showCards;
         topPlayer.stats = {};
         img['top-player'] = 2;
-        leftPlayer = new ComputerPlayer('John');
+        leftPlayer = new ComputerPlayer('Bob');
         leftPlayer.top = LEFT_PLAYER_TOP;
         leftPlayer.left = LEFT_PLAYER_LEFT;
         leftPlayer.align = VERTICAL;
@@ -2641,7 +2659,7 @@ WebCardGame.prototype = {
         leftPlayer.showCards = showCards;
         leftPlayer.stats = {};
         img['left-player'] = 1;
-        rightPlayer = new ComputerPlayer('Lisa');
+        rightPlayer = new ComputerPlayer('Alice');
         rightPlayer.top = RIGHT_PLAYER_TOP;
         rightPlayer.left = RIGHT_PLAYER_LEFT;
         rightPlayer.align = VERTICAL;
