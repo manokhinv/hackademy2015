@@ -56,14 +56,14 @@ p {
 }
 
 a:link, a:visited {
-	color:#8283F4;
+	color:#333;
 	text-decoration:none;
 	font-weight:bold;
 	border-style:none;
 }
 
 a:hover {
-	color:black;
+	color:#EDF35A;
 }
 
 img { border-style:none; }
