@@ -296,7 +296,7 @@ h3 {
 }
 
 .player-thumb {
-	/*background-image:url(players-thumbs.png);*/
+	background-image:url(../img/players2.png);
 	width:20px;
 	height:20px;
 	display:inline-block;
@@ -304,7 +304,7 @@ h3 {
 
 #left-player {
 	top:250px;
-	left:2px;
+	right:830px;
 	display:none;
 }
 
@@ -314,7 +314,7 @@ h3 {
 
 #right-player {
 	top:250px;
-	right:2px;
+	left:900px;
 	display:none;
 }
 
@@ -324,7 +324,7 @@ h3 {
 
 #top-player {
 	top:2px;
-	left:325px;
+	left:42%;
 }
 
 #top-player div {
@@ -333,7 +333,7 @@ h3 {
 
 #bottom-player {
 	bottom:2px;
-	left:325px;
+	left:45%;
 }
 
 
@@ -747,7 +747,7 @@ button:active {
 	position:absolute;
 	width:33px;
 	height:45px;
-	/*background:url(vertical-trick.png);*/
+	background:url(../img/vertical-trick.png);
 }
 
 .horizontalTrick {
@@ -830,15 +830,16 @@ button:active {
 	font-family:Arial, sans-serif;
 	font-weight:bold;
 	position:absolute;
-	left:390px;
-	bottom:20px;
+	left:440px;
+	bottom:0px;
 	width:80px;
-	height:30px;
+	height:35px;
 	line-height:30px;
 	padding-left:6px;
 	padding-top:4px;
 	cursor:pointer;
-	/*background-image:url(../img/fish.png);*/
+	background: #EDF35A;
+	border-radius: 5px;
 	text-align:center;
 	display:none;
 }

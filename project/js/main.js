@@ -1892,7 +1892,7 @@ HumanPlayer.prototype.extend({
         this.state = states.ASKED;
         this.asker = asker;
         this.askedRank = rank;
-        this.game.message('If you have any ' + this.game.pluralnames[rank] + ', click on them to give them to ' + asker.name + '. If not, press the Pick a Card button.');
+        this.game.message('If you have any ' + this.game.pluralnames[rank] + ', click on them to give them to ' + asker.name + '. If not, press the PASS button.');
     },
     goFish: function() {
         this.game.message('Click a card in the pile to fish.');
@@ -1986,7 +1986,7 @@ HumanPlayer.prototype.extend({
 });
 var TABLE_SIZE = {
     width: 750,
-    height: 650
+    height: 600
 };
 var CARD_SIZE = {
     width: 71,
