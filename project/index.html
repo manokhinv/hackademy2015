@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
 <head>
-    <title>Conversion Wars!</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta charset="utf-8">
     <meta name="Description" content="Conversion Wars: Adaptation of Go-Fish Card Game for Fraction<->Decimal<->Percentage Conversions." />
 
     <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <link rel="stylesheet" href="css/slider.css" type="text/css" />
+    <link rel="stylesheet" href="css/calculator.css" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
 
     <link rel="icon" type="image/png" href="http://www.google.com/s2/favicons?domain=www.mansd.org">
-
+	<script src="js/jquery1_9_1.min.js" language="javascript" type="text/javascript"></script>
+    
+	<script src="js/main.js"></script> <!-- Resource jQuery -->
+    <script src="js/slider.js"></script> <!-- Resource jQuery -->
+    <script src="js/calculator.js"></script> <!-- Resource jQuery -->
+    
     <script>
         var category = 'Conversion Wars';
     </script>
@@ -29,13 +37,10 @@
 
                 <div id="menucontainer">
                     <ul id="menu">
-                        <li><a title="Start a new game of Go Fish against the computer" href="#newgame">New Game</a></li>
-
-                        <li> | <a title="Rules of Go Fish" href="#rules">Rules</a></li>
-                        <li> | <a title="About this version of Go Fish" href="#about">About</a></li>
-
-                        <li class="stats-link"> | <a title="See your statistics" href="/statistics/">Statistics</a></li>
-                        <li class="stats-link"> | <a title="Calc" href="" onClick="window.open('calc.html', '_blank', 'toolbar=0,location=0,menubar=0,height=525,width=962,resizable=false');">Calculator</a></li>
+                        <li><a title="Start a new game against the computer." href="#newgame">New Game</a></li>
+                        <li> | <a title="Rules" href="#rules" class="rules-a">Rules</a></li>
+                        <li> | <a title="Calc" href="#calc" class="calc-a">Calculator</a></li>
+						<li> | <a title="Fraction Help" href="#tips" class="tips-a">Fraction Help</a></li>
                     </ul>
                 </div>
             </div>
@@ -45,13 +50,13 @@
 
                             <div id="left-player" class="avatar">
                                 <div style="background-position: -275px 0px"></div>
-                                <small>Bob</small>
+                                <small>Player 1</small>
                             </div>
                             <div id="left-player-bubble" class="bubble"><p><span></span></p></div>
 
                             <div id="right-player" class="avatar">
                                 <div  style="background-position: -155px 0px"></div>
-                                <small>Alice</small>
+                                <small>Player 2</small>
                             </div>
                             <div id="right-player-bubble" class="bubble"><p><span></span></p></div>
 
@@ -129,58 +134,130 @@
                                 </div>
                             </div>
 
-                    </div>
-                </div>
+                          </div>
+                          <div style="clear:both;"><!-- --></div>
+                      </div>
 
                 <a name="rules"></a>
                 <div id="rules">
 
-                    <h2>Conversion War Rules</h2>
+	<div class="cd-panel from-right">
+		<header class="cd-panel-header">
+			<!--<h1>Title Goes Here</h1>-->
+			<a href="#0" class="cd-panel-close">Close</a>
+		</header>
 
-                    <p>In this game of Conversion Wars you and your opponent will play against each other to solve mathematical problems and become familiar with decimals, percentages, fractions, and equations to pull the concepts together. Each correct conversion made per turn is one point earned. In the event of both opponents having the right answer in any form the opponents will enter a war where they will need to solve an equation and give the answer as a decimal, percent, and simplified fraction. The player who solves it correctly gets the cards as well as 1 point and the player who doesn't keeps their card loses their card.</p>
-                    <br />
-                    <br />
+		<div class="cd-panel-container">
+			<div class="cd-panel-content">
+        <div id="rules">
+            <h2>Rules</h2>
+            <p>In this game of Conversion Wars you and your opponent will play against each other to solve mathematical problems and become familiar with decimals, percentages, and fractions. Equations will be presented to pull the concepts together. Each correct conversion made per turn is 1 point earned. In the event of both opponents having the right answer in any form, the opponents will enter a war where they will need to solve an equation and give the answer as a decimal, percent, and simplified fraction. The player who solves it correctly gets the cards as well as 2 points while the losing player must give up their card and receives no point.</p>
+            <h2>Objective and Scoring</h2>
+            <p>To collect as many points as possible. A point is earned when four cards of the same value are matched. The player with the most points at the end of the game wins.</p>
+            <h2>Drawing New Cards</h2>
+            <p>Both players must always have 5 cards so, if a card is drawn and used, that player must pick up a new card from the center scattered pile.</p>
+            <h2>New Hampshire Common Core Standards</h2>
+            <ul>
+                <li> Understand decimal notation for fractions, and compare decimal fractions.</li>
+                <li> Use equivalent fractions as a strategy to add and subtract fractions.</li>
+                <li> Apply and extend previous understandings of multiplication and division to multiply and divide fractions.</li>
+            </ul>
+        </div>
 
-                    <h2>Objective and Scoring</h2>
-                    <p>To collect as many "books" as possible. A book is four cards of the same rank. The player with 15 books at the end of the game wins.</p>
-                	<br />
-                    <br />
+        <h2>Objective and Scoring</h2>
+        <p>To collect as many "books" as possible. A book is four cards of the same rank. The player with 15 books at the end of the game wins.</p>
+        <br />
+        <br />
 
-                    <h2>Drawing New Cards</h2>
-                    <p>Both players must always have 5 cards so, if a card is drawn and used, that player must pick up a new card from the center scattered pile.</p>
-                    <p>If there are three or four players then it can happen that one of them finishes their cards and there are no cards left in the pile for him to draw. In that case he is out of the game and will simply have to wait while the remaining players finish the game.</p>
-                	<br />
-                    <br />
+        <h2>Drawing New Cards</h2>
+        <p>Both players must always have 5 cards so, if a card is drawn and used, that player must pick up a new card from the center scattered pile.</p>
+        <p>If there are three or four players then it can happen that one of them finishes their cards and there are no cards left in the pile for him to draw. In that case he is out of the game and will simply have to wait while the remaining players finish the game.</p>
+        <br />
+        <br />
+                    
+                    
+    	</div> <!-- cd-panel-content -->
+		</div> <!-- cd-panel-container -->
+	</div> <!-- cd-panel -->
 
-                    <h2>New Hampshire Common Core Standards</h2>
-                    <ul>
-                        <li> Understand decimal notation for fractions, and compare decimal fractions.</li>
-                        <li> Use equivalent fractions as a strategy to add and subtract fractions.</li>
-                        <li> Apply and extend previous understandings of multiplication and division to multiply and divide fractions.</li>
-                    </ul>
+  <div class="cd-panel-calc from-left">
+    <header class="cd-panel-header-calc">
+      <!--<h1>Title Goes Here</h1>-->
+      <a href="#0" class="cd-panel-close">Close</a>
+    </header>
 
-                </div>
-
-                <a name="about"></a>
-                <div id="about">
-                    <h2>About</h2>
-
-                    <p>The game is made using HTML, JavaScript/jQuery, and CSS.</p>
+                    <div class="cd-panel-container-calc">
+                      <div class="cd-panel-content">
+                        <div id="calculator">
+                            <!-- Screen and clear key -->
+                            <div class="top">
+                                <span class="clear">C</span>
+                                <div class="screen"></div>
+                            </div>
+                            
+                            <div class="keys">
+                                <!-- operators and other keys -->
+                                <span>7</span>
+                                <span>8</span>
+                                <span>9</span>
+                                <span class="operator">+</span>
+                                <span>4</span>
+                                <span>5</span>
+                                <span>6</span>
+                                <span class="operator">-</span>
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span class="operator">÷</span>
+                                <span>0</span>
+                                <span>.</span>
+                                <span class="eval">=</span>
+                                <span class="operator">x</span>
+                            </div>
+                
+                      </div> <!-- cd-panel-content -->
+                    </div> <!-- cd-panel-container -->
+                  </div> <!-- cd-panel-calc -->
 
                     <p><a href="#play" class="playlink">Back to game</a></p>
                 </div>
             </div>
 
-            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-            <script>
-                if (!window.jQuery) {
-                    document.write('<scr' + 'ipt src="js/jquery1_9_1.min.js"><' + '/script>');
-                }
-            </script>
-            <script src="js/main.js"></script>
+<!-- -->
 
-        </div>
-        <div style="clear:both;"><!-- --></div>
-    </div>
+<div class="cd-panel-tips from-right">
+	<header class="cd-panel-header">
+		<!--<h1>Title Goes Here</h1>-->
+		<a href="#0" class="cd-panel-close">Close</a>
+	</header>
+
+	<div class="cd-panel-container">
+		<div class="cd-panel-content">
+			<h1>Fraction Help</h1>
+			<h2>Adding Fractions</h2>
+			<p>Step 1: Make sure the bottom numbers (the denominators) are the same
+			<br />Step 2: Add the top numbers (the numerators) and put the answer
+			over the denominator<br />Step 3: Simplify the fraction</p>
+			<h2>Subtracting Fractions</h2>
+			<p>Step 1: Make sure the bottom number (the denominators) are the same<br />
+			Step 2: Subtract the top numbers from the (the numerators) and put the
+			answer over the denominator<br />
+			Step 3: Simplify the fraction</p>
+			<h2>Multiplying Fractions</h2>
+			<p>Step 1: Multiply the top numbers (the numerators)<br />Step 2: Multiply
+			 the bottom numbers (the numerators)<br />Step 3: Simplify the fraction</p>
+			<h2>Dividing Fractions</h2>
+			<p>Step 1: Turn the second fraction (the one you want to divide by) upside
+		  down (this is now a reciprocal)<br />Step 2: Multiply the first fraction
+			by that reciprocal<br />Step 3: Simplify the fraction</p>
+
+		</div> <!-- cd-panel-content -->
+	</div> <!-- cd-panel-container -->
+</div> <!-- cd-panel -->
+
+
+<!--<script src="js/jquery-2.1.1.js"></script>--> <!-- From slider, not used now -->
+
+
 </body>
 </html>
