@@ -70,10 +70,10 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1 {
-    margin-top:20px;
-	margin-bottom:10px;
+  margin-top:	10px;
+	margin-bottom:	10px;
     /*color:white;*/
-	font-size:50px;
+	font-size:2vw;
 	/*text-shadow: #444 1px 1px 2px; */
 	font-family: 'Lato';
 }
@@ -293,6 +293,7 @@ h3 {
 	border:solid 1px #222;
 	font-weight: bold;
 	border-radius:12px;
+
 }
 
 .player-thumb {
@@ -424,13 +425,13 @@ h3 {
 
 #messageBox p {
 	width:50%;
-	height:35px;
-	font-size:12px;
+	/*height:35px;
+	font-size:12px;*/
 	line-height: 16px;
 	margin:0px auto;
 	padding: 3px 6px;
-	color:#333;
-	background-color:#EDF35A;
+	color:#000000;
+	background-color:#FAFC9F;
 	border-radius:4px;
 	text-shadow:none;
 }
@@ -502,6 +503,30 @@ h3 {
     margin-left:50px;
 }
 
+/* Hacked buttons, css3 button generator.com */
+.btn {
+  text-shadow: 1px 1px 3px #666666;
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  font-size: 20px;
+  background: #D1D2F7;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  /*background-color: #000000;
+/*  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db); */
+	text-color: white;
+  text-decoration: none;
+}
+
+
 button {
 	color:#333 !important;
 	font-family: Arial, sans-serif;
@@ -520,10 +545,10 @@ button {
 }
 
 button.big {
-	font-size:20px;
+	font-size: 1vw;
 	font-weight:bold;
 	padding:7px 12px;
-	width:170px;
+	/*width: 170px;*/
 }
 
 button.small {
@@ -798,6 +823,7 @@ button:active {
 #deal {
 	position:absolute;
 	width:170px;
+	padding-left: 30px;
 	left:360px;
 	top:260px;
 }
@@ -825,23 +851,23 @@ button:active {
 
 
 #fish-button {
-	color:black;
+	/*color:black;
 	font-size:13px;
 	font-family:Arial, sans-serif;
-	font-weight:bold;
+	font-weight:bold;*/
 	position:absolute;
 	left:440px;
 	bottom:0px;
-	width:80px;
-	height:35px;
-	line-height:30px;
+/*	width:80px;
+	height:35px; */
+	/*line-height:30px;
 	padding-left:6px;
-	padding-top:4px;
+	padding-top:4px; */
 	cursor:pointer;
-	background: #EDF35A;
+	/*background: #EDF35A;
 	border-radius: 5px;
 	text-align:center;
-	display:none;
+	display:none;*/
 }
 
 #askdiv {
@@ -851,7 +877,7 @@ button:active {
 	position:absolute;
 	left:150px;
 	top:230px;
-	background-color:#EDF35A;
+	background-color:#FAFC9F;
 	color:black;
 	text-shadow:white 0 0 1px;
 	-moz-border-radius:5px;

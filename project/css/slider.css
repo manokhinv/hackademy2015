@@ -52,7 +52,7 @@ Main components
   transition: visibility 0s 0s;
   z-index: 70000;
 }
-.cd-panel.is-visible::after {
+.cd-panel.is-visible::after, .cd-panel-tips.is-visible::after {
   background: rgba(0, 0, 0, 0.6);
   -webkit-transition: background 0.3s 0s;
   -moz-transition: background 0.3s 0s;
