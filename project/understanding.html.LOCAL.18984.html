@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
-    <title>Conversion Wars - Understanding</title>
     <meta name="Description" content="Conversion Wars: Adaptation of Go-Fish Card Game for Fraction<->Decimal<->Percentage Conversions." />
 
     <link rel="stylesheet" href="css/main.css" type="text/css" />
@@ -47,15 +45,13 @@
                 
                     <h2>Solve The Following Equations</h2>
                    
-                   <div>Don't forget proper notation such as precent simbol (%) and zeros in the one's place for decimals (0.00)!</div>
                    
                    <script type="text/javascript" language="javascript">
 				       function check_value(el,ans1,ans2){
 						   if(document.getElementById("_" + el).value !== ans1 && document.getElementById("_" + el).value != ans2) {
 							    alert('Try Again! The answer must be a simplified fraction or, for decimals, go to two decimal places.'); 
 								document.getElementById("_" + el).value = '';
-						   } 
-						   if(document.getElementById("_" + el).value == ans1 || (document.getElementById("_" + el).value != '' && document.getElementById("_" + el).value == ans1)) {
+						   } else {
 							   	alert('You Got It! Good Job! :)'); 
 						   }
 					   }
@@ -287,4 +283,3 @@
 
 </body>
 </html>
-
