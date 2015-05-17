@@ -1128,7 +1128,7 @@ GoFish.prototype = {
         this.renderers['playerfinished'] = this.makeRenderFunc('playerfinished - @player.name is out of the game with @player.tricks.length tricks');
         this.renderers['taketrick'] = this.makeRenderFunc('taketrick - @player.name takes trick: @trick');
         this.renderers['givecards'] = this.makeRenderFunc('givecards - @askee.name gives @cards to @asker.name');
-        this.renderers['gofish'] = this.makeRenderFunc('gofish - @askee.name tells @asker.name to go pick a card for @rank');
+        this.renderers['gofish'] = this.makeRenderFunc('gofish - @askee.name tells @asker.name to go fish for @rank');
         this.renderers['drawrightcard'] = this.makeRenderFunc('drawrightcard - @asker.name drew a @drawcard');
         this.renderers['drawwrongcard'] = this.makeRenderFunc('drawwrongcard - @asker.name drew a @drawcard');
         this.renderers['drawcard'] = this.makeRenderFunc('drawcard - @player.name drew @card from the deck');
@@ -1371,11 +1371,11 @@ GoFish.prototype = {
     },
     goFish: function(askee, asker) {
         if (askee.name == 'You') {
-            this.message('You tell ' + asker.name + ' to pick a card!');
+            this.message('You tell ' + asker.name + ' to go fish!');
         } else if (asker.name == 'You') {
-            this.message(askee.name + ' tells you to pick a card!');
+            this.message(askee.name + ' tells you to go fish!');
         } else {
-            this.message(askee.name + ' tells ' + asker.name + ' to pick a card!');
+            this.message(askee.name + ' tells ' + asker.name + ' to go fish!');
         }
         this.renderEvent('gofish', function() {
             if (this.deck.length == 0) {
@@ -1420,10 +1420,10 @@ GoFish.prototype = {
     },
     fish: function(player, card) {
         if (player !== this.current.asker) {
-            throw player.name + ' is picking a card when it should be ' + this.current.asker.name;
+            throw player.name + ' is fishing when it should be ' + this.current.asker.name;
         }
         if (!$A(this.deck).remove(card)) {
-            throw card + ' is not available for picking a card';
+            throw card + ' is not available for fishing';
         }
         player.hand.push(card);
         if (player.isHuman && player.sortHand) {
@@ -1436,9 +1436,9 @@ GoFish.prototype = {
                 p.notifyDrawRightCard(curr.asker, curr.askee, curr.rank);
             });
             if (player.name == 'You') {
-                this.message('You picked a card and draw ' + this.names[this.current.rank] + '!!!');
+                this.message('You go fishing and draw ' + this.names[this.current.rank] + '!!!');
             } else {
-                this.message(player.name + ' picks a card and draws ' + this.names[this.current.rank] + '!!!');
+                this.message(player.name + ' goes fishing and draws ' + this.names[this.current.rank] + '!!!');
             }
             this.renderEvent('drawrightcard', this.playerTurn, this.current);
         } else {
@@ -1446,9 +1446,9 @@ GoFish.prototype = {
                 p.notifyDrawWrongCard(curr.asker, curr.askee, curr.rank);
             });
             if (player.name == 'You') {
-                this.message('You picked a card, but don\'t get ' + this.names[this.current.rank]);
+                this.message('You go fishing but don\'t get ' + this.names[this.current.rank]);
             } else {
-                this.message(player.name + ' picks a card, but doesn\'t get ' + this.names[this.current.rank]);
+                this.message(player.name + ' goes fishing but doesn\'t get ' + this.names[this.current.rank]);
             }
             this.renderEvent('drawwrongcard', this.checkForTrickAfterFishing, this.current);
         }
@@ -1829,7 +1829,7 @@ HumanPlayer.prototype.extend({
         this.state = states.ASKING;
         if (this.game.players.length == 2) {
             var op = this.game.players[0] === this ? this.game.players[1] : this.game.players[0];
-            this.game.message('Which of these equivalent unsimplified fractions do you want to ask ' + op.name + ' for?');
+            this.game.message('What rank do you want to ask ' + op.name + ' for?');
             this.showRankDiv(op);
         } else {
             this.game.message('Your turn. Click on the player you want to ask.');
@@ -1871,7 +1871,7 @@ HumanPlayer.prototype.extend({
     },
     clickGoFish: function() {
         if (this.state != states.ASKED) {
-            return this.game.message('Uh, no one was asking you! You can\'t tell anyone to go pick a card now!');
+            return this.game.message('Uh, no one was asking you! You can\'t tell anyone to go fish now!');
         }
         var askedRank = this.askedRank;
         var count = $A(this.hand).where(function(c) {
@@ -1882,9 +1882,9 @@ HumanPlayer.prototype.extend({
             this.state = states.WAITING;
             this.game.goFish(this, this.asker);
         } else if (count == 1) {
-            this.game.message('No cheating! You have ' + this.game.names[this.askedRank] + ' or the equivalent, you must give it to ' + this.asker.name + '.');
+            this.game.message('No cheating! You have ' + this.game.names[this.askedRank] + ' or equivalent, you must give it to ' + this.asker.name + '.');
         } else if (count > 1) {
-            this.game.message('Nice try... You have ' + this.game.pluralnames[this.askedRank] + ' or the equivalent, you must give them to ' + this.asker.name + '.');
+            this.game.message('Nice try... You have ' + this.game.pluralnames[this.askedRank] + ' or equivalent, you must give them to ' + this.asker.name + '.');
         }
     },
     requestRank: function(asker, rank) {
@@ -1892,10 +1892,10 @@ HumanPlayer.prototype.extend({
         this.state = states.ASKED;
         this.asker = asker;
         this.askedRank = rank;
-        this.game.message('If you have any ' + this.game.pluralnames[rank] + ' or the equivalent, click on them to give them to ' + asker.name + '. If not, press the Pass button.');
+        this.game.message('If you have any ' + this.game.pluralnames[rank] + ' or equivalent, click on them to give them to ' + asker.name + '. If not, press the Pass button.');
     },
     goFish: function() {
-        this.game.message('Click a card in the pile to pick it.');
+        this.game.message('Click a card in the pile to fish.');
         log('Set FISHING - goFish')
         this.state = states.FISHING;
     },
@@ -1934,7 +1934,7 @@ HumanPlayer.prototype.extend({
                 this.state = states.WAITING;
                 this.game.fish(this, card);
             } else {
-                this.game.message('You can only pick cards from the pile!');
+                this.game.message('You can only fish cards from the pile!');
             }
         } else if (this.state == states.DRAWING) {
             if ($A(this.game.deck).contains(card)) {
@@ -2393,7 +2393,7 @@ var webRenderer = {
             } else if (e.player.position == BOTTOM) {
                 cssClass = 'verticalTrick';
                 trickProps['bottom'] = playerMargin + $('#bottom-player').height() - playerSize + ((playerSize - trickHeight) / 2);
-                trickProps['right'] = cardDistance + 20;
+                trickProps['right'] = cardDistance;
                 props['top'] = TABLE_SIZE.height - trickProps['bottom'] - CARD_SIZE.height;
                 props['left'] = TABLE_SIZE.width - trickProps['right'] - CARD_SIZE.width;
             } else if (e.player.position == LEFT) {
@@ -2548,31 +2548,31 @@ webRenderer.extend({
         //$(bubble + ' div').show().css('background-position', (-img[e.askee.id] * 35) + 'px 0px');
         var rankText = e.rank.toString();
         if (rankText == '2') {
-			rankText = '12/20';
+			rankText = '60%';
 		} else if (rankText == '3') {
-            rankText = '10/15';
+            rankText = '8/12';
 		} else if (rankText == '4') {
-            rankText = '3/18';
+            rankText = '0.17';
 		} else if (rankText == '5') {
-            rankText = '27/54';
+            rankText = '4/8';
 		} else if (rankText == '6') {
-            rankText = '6/30';
+            rankText = '1/5';
 		} else if (rankText == '7') {
-            rankText = '9/27';
+            rankText = '33%';
 		} else if (rankText == '8') {
-            rankText = '12/14';
+            rankText = '0.86';
 		} else if (rankText == '9') {
-            rankText = '4/40';
+            rankText = '3/30';
 		} else if (rankText == '10') {
-            rankText = '18/24';
+            rankText = '75%';
 		} else if (rankText == '11') {
-            rankText = '3/150';
+            rankText = '1/50';
         } else if (rankText == '12') {
-            rankText = '30/63';
+            rankText = '0.48';
         } else if (rankText == '13') {
-            rankText = '10/18';
+            rankText = '5/4';
         } else if (rankText == '14') {
-            rankText = '30/12';
+            rankText = '5/2';
         }
         $(bubble + ' p span').text(rankText + '?');
         $(bubble).show();

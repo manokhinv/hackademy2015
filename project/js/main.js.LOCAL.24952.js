@@ -1128,7 +1128,7 @@ GoFish.prototype = {
         this.renderers['playerfinished'] = this.makeRenderFunc('playerfinished - @player.name is out of the game with @player.tricks.length tricks');
         this.renderers['taketrick'] = this.makeRenderFunc('taketrick - @player.name takes trick: @trick');
         this.renderers['givecards'] = this.makeRenderFunc('givecards - @askee.name gives @cards to @asker.name');
-        this.renderers['gofish'] = this.makeRenderFunc('gofish - @askee.name tells @asker.name to go pick a card for @rank');
+        this.renderers['gofish'] = this.makeRenderFunc('gofish - @askee.name tells @asker.name to go fish for @rank');
         this.renderers['drawrightcard'] = this.makeRenderFunc('drawrightcard - @asker.name drew a @drawcard');
         this.renderers['drawwrongcard'] = this.makeRenderFunc('drawwrongcard - @asker.name drew a @drawcard');
         this.renderers['drawcard'] = this.makeRenderFunc('drawcard - @player.name drew @card from the deck');
@@ -1871,7 +1871,7 @@ HumanPlayer.prototype.extend({
     },
     clickGoFish: function() {
         if (this.state != states.ASKED) {
-            return this.game.message('Uh, no one was asking you! You can\'t tell anyone to go pick a card now!');
+            return this.game.message('Uh, no one was asking you! You can\'t tell anyone to go fish now!');
         }
         var askedRank = this.askedRank;
         var count = $A(this.hand).where(function(c) {
