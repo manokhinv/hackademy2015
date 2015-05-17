@@ -30,7 +30,7 @@
 
                 <div id="menucontainer">
                     <ul id="menu">
-                        <li><a title="Start a New Game Against the Computer" href="index.html" target="_self">New Game</a></li>
+                        <li><a title="Start a New Game Against the Computer" href="http://conversion-wars.me" target="_self">New Game</a></li>
                         <li> | <a title="Objectives" href="#rules" class="rules-a">Objectives</a></li>
                         <li> | <a title="Calculator" href="#calc" class="calc-a">Calculator</a></li>
 						<li> | <a title="Fraction Help" href="#tips" class="tips-a">Fraction Help</a></li>
@@ -47,38 +47,123 @@
                    
                    
                    <script type="text/javascript" language="javascript">
-				       function check_value(el,ans){
+				       function check_value(el,ans1,ans2){
+						   if(document.getElementById("_" + el).value !== ans1 && document.getElementById("_" + el).value != ans2) {
+							    alert('Try Again! The answer must be a simplified fraction or, for decimals, go to two decimal places.'); 
+								document.getElementById("_" + el).value = '';
+						   } else {
+							   	alert('You Got It! Good Job! :)'); 
+						   }
 					   }
 					   
 				   </script>
+                   <style>
+				       div.fr {padding-left:70px; padding-bottom:-5px;}
+				   </style>
                     
                         <h3 style="color:#333">Adding Fractions</h3>
-                        <div id="add" class="add" style="left:500px;">
-                        <p>
-                        	<ol>
-                                <li>1/3 + 3/9 = <input type="text" size="3" id="a11">
-                                <input type="button" value="submit fraction" onClick="javascript:if(document.getElementById('a11').value !== '2/3') { alert('Try Again 1!'); document.getElementById('a1').value = '';}">
-                                ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="a12">
-                                <input type="button" value="submit decimal" onClick="javascript:if(document.getElementById('a12').value !== '0.67' && document.getElementById('a2').value !== '.67') { alert('Try Again 2!'); document.getElementById('a2').value = '';}">
-                                ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="a13">
-                                <input type="button" value="submit percent" onClick="javascript:if(document.getElementById('a13').value !== '67%' && (document.getElementById('a3').value != '67') { alert('Try Again 3!'); document.getElementById('a3').value = '';}"></li>
-                                <li>2/3 + 4/5 = <input type="text" size="3" id="a1">
-                                <input type="button" value="submit fraction" onClick="javascript:if(document.getElementById('a1').value !== '2/3') { alert('Try Again 1!'); document.getElementById('a1').value = '';}">
-                                ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="a2">
-                                <input type="button" value="submit decimal" onClick="javascript:if(document.getElementById('a2').value !== '0.67' && document.getElementById('a2').value !== '.67') { alert('Try Again 2!'); document.getElementById('a2').value = '';}">
-                                ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="a3">
-                                <input type="button" value="submit percent" onClick="javascript:if((document.getElementById('a3').value !== '67%') && (document.getElementById('a3').value != '67')) { alert('Try Again 3!'); document.getElementById('a3').value = '';}"></li>
-                            </ol>
-                            
-                           
-                        </p>
+                        <div id="add" class="fr">
+                            <p>
+                                <ul>
+                                    <li>1/3 + 3/9 = <input type="text" size="3" id="_a11">
+                                    <input type="button" value=" submit fraction " id="a11" onClick="check_value(this.id,'2/3','')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_a12">
+                                    <input type="button" value=" submit decimal " id="a12" onClick="check_value(this.id,'0.67','.67')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_a13">
+                                    <input type="button" value=" submit percent " id="a13" onClick="check_value(this.id,'67%','67')">
+                                    </li>
+                                    <li>2/5 + 4/10 = <input type="text" size="3" id="_a21">
+                                    <input type="button" value=" submit fraction " id="a21" onClick="check_value(this.id,'4/5','')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_a22">
+                                    <input type="button" value=" submit decimal " id="a22" onClick="check_value(this.id,'0.80','.80')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_a23">
+                                    <input type="button" value=" submit percent " id="a23" onClick="check_value(this.id,'80%','80')">
+                                    </li>
+                                </ul>
+                            </p>
                         </div>
-                    <h2>Subtracting Fractions</h2>
-                    <p><br /><br /><br /><br /></p>
-                    <h2>Multiplying Fractions</h2>
-                    <p><br /><br /><br /><br /></p>
-                    <h2>Dividing Fractions</h2>
-                    <p><br /><br /><br /><br /></p>
+                        
+                        <h3 style="color:#333">Subtracting Fractions</h3>
+                        <div id="sub" class="fr">
+                            <p>
+                                <ul>
+                                    <li>4/8 - 2/6 = <input type="text" size="3" id="_s21">
+                                    <input type="button" value=" submit fraction " id="s21" onClick="check_value(this.id,'1/6,'')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_s12">
+                                    <input type="button" value=" submit decimal " id="s12" onClick="check_value(this.id,'0.17','.17')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_s13">
+                                    <input type="button" value=" submit percent " id="s13" onClick="check_value(this.id,'17%','17')">
+                                    </li>
+                                    <li>7/10 - 1/5 = <input type="text" size="3" id="_s21">
+                                    <input type="button" value=" submit fraction " id="s21" onClick="check_value(this.id,'1/5','')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_s22">
+                                    <input type="button" value=" submit decimal " id="s22" onClick="check_value(this.id,'0.20','.20')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_s23">
+                                    <input type="button" value=" submit percent " id="s23" onClick="check_value(this.id,'20%','20')">
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                        
+                        <h3 style="color:#333">Multiplying Fractions</h3>
+                        <div id="mul" class="fr">
+                            <p>
+                                <ul>
+                                    <li>1/5 * 2/3 = <input type="text" size="3" id="_m21">
+                                    <input type="button" value=" submit fraction " id="m21" onClick="check_value(this.id,'2/15,'')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_m12">
+                                    <input type="button" value=" submit decimal " id="m12" onClick="check_value(this.id,'0.13','.13')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_m13">
+                                    <input type="button" value=" submit percent " id="m13" onClick="check_value(this.id,'13%','13')">
+                                    </li>
+                                    <li>3/8 * 2/4 = <input type="text" size="3" id="_m21">
+                                    <input type="button" value=" submit fraction " id="m21" onClick="check_value(this.id,'3/16','')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_m22">
+                                    <input type="button" value=" submit decimal " id="m22" onClick="check_value(this.id,'0.19','.19')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_m23">
+                                    <input type="button" value=" submit percent " id="m23" onClick="check_value(this.id,'19%','19')">
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                        
+                        <h3 style="color:#333">Dividing Fractions</h3>
+                        <div id="div" class="fr">
+                            <p>
+                                <ul>
+                                    <li>2/4 / 1/6 = <input type="text" size="3" id="_d21">
+                                    <input type="button" value=" submit fraction " id="d21" onClick="check_value(this.id,'3','')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_d12">
+                                    <input type="button" value=" submit decimal " id="d12" onClick="check_value(this.id,'3.00','')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_d13">
+                                    <input type="button" value=" submit percent " id="d13" onClick="check_value(this.id,'300%','')">
+                                    </li>
+                                    <li>1/5 / 2/6 = <input type="text" size="3" id="_d21">
+                                    <input type="button" value=" submit fraction " id="d21" onClick="check_value(this.id,'3/5','')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_d22">
+                                    <input type="button" value=" submit decimal " id="d22" onClick="check_value(this.id,'0.60','.60')">
+                                    
+                                    ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="_d23">
+                                    <input type="button" value=" submit percent " id="d23" onClick="check_value(this.id,'60%','60')">
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
 
                           </div>
                           <div style="clear:both;"></div>
