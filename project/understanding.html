@@ -30,106 +30,58 @@
 
                 <div id="menucontainer">
                     <ul id="menu">
-                        <li><a title="Start a New Game Against the Computer" href="#newgame">New Game</a></li>
+                        <li><a title="Start a New Game Against the Computer" href="index.html" target="_self">New Game</a></li>
                         <li> | <a title="Objectives" href="#rules" class="rules-a">Objectives</a></li>
                         <li> | <a title="Calculator" href="#calc" class="calc-a">Calculator</a></li>
 						<li> | <a title="Fraction Help" href="#tips" class="tips-a">Fraction Help</a></li>
-                        <li> | <a title="Check Understanding" href="understanding.html" target="_self">Applying Concepts</a></li>
+                        <li> | <a title="Check Understanding" href="understanding.html" target="_self" style="color:#333;">Applying Concepts</a></li>
                     </ul>
                 </div>
             </div>
             <div id="pagecontent">
                 <div id="board" class="board">
-                    <div id="play-page" class="inner-page">
-
-                            <div id="left-player" class="avatar">
-                                <div style="background-position: -275px 0px"></div>
-                                <small>Player 1</small>
-                            </div>
-                            <div id="left-player-bubble" class="bubble"><p><span></span></p></div>
-
-                            <div id="right-player" class="avatar">
-                                <div  style="background-position: -155px 0px"></div>
-                                <small>Player 2</small>
-                            </div>
-                            <div id="right-player-bubble" class="bubble"><p><span></span></p></div>
-
-                            <div id="top-player" class="avatar">
-                                <div></div>
-                                <small>Computer</small>
-                            </div>
-                            <div id="top-player-bubble" class="bubble"><p><span></span></p></div>
-
-                            <div id="bottom-player" class="avatar">
-                                <div></div>
-                                <small class="dealer">You</small>
-                            </div>
-
-                            <div id="bottom-player-bubble" class="bubble"><p><span></span></p></div>
-                            <!--<a href="javascript:void(0);" id="open-player-picker">Change player image...</a>-->
-
-                            <div id="change-player" class="dialog">
-                                <h3>Choose your player image</h3>
-                                <div id="player-picker"></div>
-                                <div class="button-panel">
-                                    <button id="prev-image" href="javascript:void(0);">&lt;&lt; Prev</button>
-                                    <button id="save-image" href="javascript:void(0);">OK</button>
-                                    <button id="next-image" href="javascript:void(0);">Next &gt;&gt;</button>
-                                </div>
-                            </div>
-
-
-                                <select id="player-count">
-                                    <option value="2">1 Opponent</option>
-                                    <option value="3">2 Opponents</option>
-                                    <option value="4">3 Opponents</option>
-                                </select>
-
-
-
-
-                        <div id="messageBox"><p>Click Deal to start the game.</p></div>
-
-
-                            <div id="fish-button" style="border:medium">Pass</div>
-                            <div id="deal"><button class="big">Deal</button></div>
-                            <div id="askdiv">
-                                <p>What rank do you want to ask <strong>Bob</strong> for?</p>
-                                <span id="ask-2">12/20</span>
-                                <span id="ask-3">10/15</span>
-                                <span id="ask-4">3/18</span>
-                                <span id="ask-5">27/54</span>
-                                <span id="ask-6">6/30</span>
-                                <span id="ask-7">9/27</span>
-                                <span id="ask-8">12/14</span>
-                                <span id="ask-9">4/40</span>
-                                <span id="ask-10">18/24</span>
-                                <span id="ask-11">3/150</span>
-                                <span id="ask-12">30/63</span>
-                                <span id="ask-13">10/18</span>
-                                <span id="ask-14">30/12</span>
-                            </div>
-
-
-
-                            <!-- Win and lose screens -->
-                            <div id="results-div">
-                                <div class="dialog results" id="result-box">
-                                    <h3>Congratulations, you won!</h3>
-                                    <img src="trophy.png" alt="Trophy" />
-                                    <span class="winner-img" id="left-player-win"></span>
-                                    <span class="winner-img" id="right-player-win"></span>
-                                    <span class="winner-img" id="top-player-win"></span>
-                                    <span class="winner-img" id="bottom-player-win"></span>
-                                    <img src="trophy.png" alt="Trophy" />
-                                    <div class="button-panel">
-                                        <button id="start-new-game">Start a new game!</button>
-                                    </div>
-                                </div>
-                            </div>
+                
+                
+                
+                    <h2>Solve The Following Equations</h2>
+                   
+                   
+                   <script type="text/javascript" language="javascript">
+				       function check_value(el,ans){
+					   }
+					   
+				   </script>
+                    
+                        <h3 style="color:#333">Adding Fractions</h3>
+                        <div id="add" class="add" style="left:500px;">
+                        <p>
+                        	<ol>
+                                <li>1/3 + 3/9 = <input type="text" size="3" id="a11">
+                                <input type="button" value="submit fraction" onClick="javascript:if(document.getElementById('a11').value !== '2/3') { alert('Try Again 1!'); document.getElementById('a1').value = '';}">
+                                ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="a12">
+                                <input type="button" value="submit decimal" onClick="javascript:if(document.getElementById('a12').value !== '0.67' && document.getElementById('a2').value !== '.67') { alert('Try Again 2!'); document.getElementById('a2').value = '';}">
+                                ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="a13">
+                                <input type="button" value="submit percent" onClick="javascript:if(document.getElementById('a13').value !== '67%' && (document.getElementById('a3').value != '67') { alert('Try Again 3!'); document.getElementById('a3').value = '';}"></li>
+                                <li>2/3 + 4/5 = <input type="text" size="3" id="a1">
+                                <input type="button" value="submit fraction" onClick="javascript:if(document.getElementById('a1').value !== '2/3') { alert('Try Again 1!'); document.getElementById('a1').value = '';}">
+                                ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="a2">
+                                <input type="button" value="submit decimal" onClick="javascript:if(document.getElementById('a2').value !== '0.67' && document.getElementById('a2').value !== '.67') { alert('Try Again 2!'); document.getElementById('a2').value = '';}">
+                                ;&nbsp;&nbsp;&nbsp;<input type="text" size="3" id="a3">
+                                <input type="button" value="submit percent" onClick="javascript:if((document.getElementById('a3').value !== '67%') && (document.getElementById('a3').value != '67')) { alert('Try Again 3!'); document.getElementById('a3').value = '';}"></li>
+                            </ol>
+                            
+                           
+                        </p>
+                        </div>
+                    <h2>Subtracting Fractions</h2>
+                    <p><br /><br /><br /><br /></p>
+                    <h2>Multiplying Fractions</h2>
+                    <p><br /><br /><br /><br /></p>
+                    <h2>Dividing Fractions</h2>
+                    <p><br /><br /><br /><br /></p>
 
                           </div>
-                          <div style="clear:both;"><!-- --></div>
+                          <div style="clear:both;"></div>
                       </div>
 
                 <a name="rules"></a>
@@ -238,7 +190,7 @@
 	</div> <!-- cd-panel-container -->
 </div> <!-- cd-panel -->
     
-<script src="js/main.js"></script>
+<!--<script src="js/main.js"></script>-->
 <script src="js/slider.js"></script>
 <script src="js/calculator.js"></script>
 <!--<script src="js/jquery-2.1.1.js"></script>--> <!-- From slider, not used now -->

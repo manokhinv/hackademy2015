@@ -619,11 +619,11 @@ Card.prototype = {
             "c": 'club'
         };
         var specialCards = {
-            11: '1/50',
-            12: '0.48',
-            13: '15/18',
-            1: '250%',
-            14: '5/2'
+            11: '3/150',
+            12: '30/63',
+            13: '10/18',
+            1: '30/12',
+            14: '30/12'
         }
         this.suitName = sorts[this.suit];
         if (specialCards[rank]) {
@@ -638,15 +638,15 @@ Card.prototype = {
         return this.shortName;
     },
     rankName: function() {
-        var names = [null, null, '3/5', '8/12', '17%', '0.5', '4/20', '1/3', '18/21', '3/30', '9/12', '1/50', '20/42', '15/18', '5/2'];
+        var names = [null, null, '12/20', '10/15', '3/18', '27/54', '6/30', '9/27', '12/14', '4/40', '18/24', '3/150', '30/63', '10/18', '30/12'];
         return names[this.rank];
     },
     shortRankName: function() {
-        var names = [null, null, '3/5', '8/12', '17%', '0.5', '4/20', '33%', '86%', '3/30', '0.75', '1/50', '0.48', '0.56', '5/2'];
+        var names = [null, null, '12/20', '10/15', '3/18', '27/54', '6/30', '9/27', '12/14', '4/40', '18/24', '3/150', '30/63', '10/18', '30/12'];
         return names[this.rank];
     },
     sign: function() {
-        var ranks = ['', '2.5', '3/5', '8/12', '17%', '0.5', '4/20', '1/3', '18/21', '3/30', '9/12', '1/50', '20/42', '15/18', '5/2'];
+        var ranks = ['', '30/12', '12/20', '10/15', '3/18', '27/54', '6/30', '9/27', '12/14', '4/40', '18/24', '3/150', '30/63', '10/18', '30/12'];
         var suits = {
             h: '&hearts;',
             s: '&spades;',
@@ -940,7 +940,7 @@ CardGame.prototype = {
         this.round = 0;
         this.newDeck();
     },
-    pickDealer: function(playerIds) {
+   /* pickDealer: function(playerIds) {
         if (this.lastDealerIndex >= 0) {
             this.dealerIndex = (this.lastDealerIndex + 1) % playerIds.length;
         } else {
@@ -950,7 +950,7 @@ CardGame.prototype = {
         this.renderEvent('pickdealer', function() {}, {
             dealerId: playerIds[this.dealerIndex]
         });
-    },
+    },*/
     afterDealing: function() {
         this.currentPlayerIndex = this.pickFirstPlayerIndex();
         this.renderEvent('start', this.currentPlayerTurn);
@@ -1389,34 +1389,34 @@ GoFish.prototype = {
         }, this.current);
     },
     names: {
-        2: "3/5",
-        3: "2/3",
-        4: "1/6",
-        5: "1/2",
-        6: "1/5",
-        7: "1/3",
-        8: "6/7",
-        9: "1/10",
-        10: "3/4",
-        11: "1/50",
-        12: "10/21",
-        13: "5/4",
-        14: "2 and 1/2"
+        2: "12/20",
+        3: "10/15",
+        4: "3/18",
+        5: "27/54",
+        6: "6/30",
+        7: "9/27",
+        8: "12/14",
+        9: "4/40",
+        10: "18/24",
+        11: "3/150",
+        12: "30/63",
+        13: "10/18",
+        14: "30/12"
     },
     pluralnames: {
-        2: "3/5's",
-        3: "2/3's",
-        4: "1/6's",
-        5: "1/2's",
-        6: "1/5's",
-        7: "1/3's",
-        8: "6/7's",
-        9: "1/10's",
-        10: "3/4's",
-        11: "1/50's",
-        12: "10/21's",
-        13: "5/4's",
-        14: "2 and 1/2's"
+        2: "12/20's",
+        3: "10/15's",
+        4: "3/18's",
+        5: "27/54's",
+        6: "6/30's",
+        7: "9/27's",
+        8: "12/14's",
+        9: "4/40's",
+        10: "18/24's",
+        11: "3/150's",
+        12: "30/63's",
+        13: "10/18's",
+        14: "30/12's"
     },
     fish: function(player, card) {
         if (player !== this.current.asker) {
@@ -1882,9 +1882,9 @@ HumanPlayer.prototype.extend({
             this.state = states.WAITING;
             this.game.goFish(this, this.asker);
         } else if (count == 1) {
-            this.game.message('No cheating! You have ' + this.game.names[this.askedRank] + ', you must give it to ' + this.asker.name + '.');
+            this.game.message('No cheating! You have ' + this.game.names[this.askedRank] + ' or equivalent, you must give it to ' + this.asker.name + '.');
         } else if (count > 1) {
-            this.game.message('Nice try... You have ' + this.game.pluralnames[this.askedRank] + ', you must give them to ' + this.asker.name + '.');
+            this.game.message('Nice try... You have ' + this.game.pluralnames[this.askedRank] + ' or equivalent, you must give them to ' + this.asker.name + '.');
         }
     },
     requestRank: function(asker, rank) {
@@ -1892,7 +1892,7 @@ HumanPlayer.prototype.extend({
         this.state = states.ASKED;
         this.asker = asker;
         this.askedRank = rank;
-        this.game.message('If you have any ' + this.game.pluralnames[rank] + ', click on them to give them to ' + asker.name + '. If not, press the PASS button.');
+        this.game.message('If you have any ' + this.game.pluralnames[rank] + ' or equivalent, click on them to give them to ' + asker.name + '. If not, press the Pass button.');
     },
     goFish: function() {
         this.game.message('Click a card in the pile to fish.');
@@ -2257,12 +2257,12 @@ var webRenderer = {
     unselectCard: function(e) {
         webRenderer._adjustHand(e.player, e.callback, ANIMATION_SPEED / 3);
     },
-    pickDealer: function(e) {
+    /*pickDealer: function(e) {
         $('#dealer-chip').remove();
         $('.avatar small').removeClass('dealer');
         $('#' + e.dealerId + ' small').addClass('dealer');
         e.callback();
-    },
+    },*/
     pass: function(e) {
         var pass = $('#pass');
         pass.css({
@@ -2545,7 +2545,7 @@ webRenderer.extend({
         e.asker.id;
         var bubble = '#' + e.asker.id + '-bubble';
         $(bubble + ' img').hide();
-        $(bubble + ' div').show().css('background-position', (-img[e.askee.id] * 35) + 'px 0px');
+        //$(bubble + ' div').show().css('background-position', (-img[e.askee.id] * 35) + 'px 0px');
         var rankText = e.rank.toString();
         if (rankText == '2') {
 			rankText = '60%';
@@ -2650,7 +2650,7 @@ WebCardGame.prototype = {
         topPlayer.showCards = showCards;
         topPlayer.stats = {};
         img['top-player'] = 2;
-        leftPlayer = new ComputerPlayer('Bob');
+        leftPlayer = new ComputerPlayer('Player1');
         leftPlayer.top = LEFT_PLAYER_TOP;
         leftPlayer.left = LEFT_PLAYER_LEFT;
         leftPlayer.align = VERTICAL;
@@ -2659,7 +2659,7 @@ WebCardGame.prototype = {
         leftPlayer.showCards = showCards;
         leftPlayer.stats = {};
         img['left-player'] = 1;
-        rightPlayer = new ComputerPlayer('Alice');
+        rightPlayer = new ComputerPlayer('Player2');
         rightPlayer.top = RIGHT_PLAYER_TOP;
         rightPlayer.left = RIGHT_PLAYER_LEFT;
         rightPlayer.align = VERTICAL;
@@ -2690,7 +2690,7 @@ WebCardGame.prototype = {
         game.setEventRenderer('draw', webRenderer.draw);
         game.setEventRenderer('pass', webRenderer.pass);
         game.setEventRenderer('sorthand', webRenderer.sortHand);
-        game.setEventRenderer('pickdealer', webRenderer.pickDealer);
+        /*game.setEventRenderer('pickdealer', webRenderer.pickDealer);*/
     },
     setupSortHandler: function() {
         $('#sortHand').click(function() {
@@ -2722,7 +2722,7 @@ WebCardGame.prototype = {
         $('#player-count').change(function() {
             window.playerCount = this.selectedIndex + 2;
             //cake('playerCount', window.playerCount);
-            webGame.pickDealer();
+            //webGame.pickDealer();
             if (playerCount == 4) {
                 $('#right-player').fadeIn();
                 $('#left-player').fadeIn();
@@ -2892,9 +2892,9 @@ WebCardGame.prototype = {
     },
     startGame: function() {
         game.start();
-        this.pickDealer();
+        //this.pickDealer();
     },
-    pickDealer: function() {
+    /*pickDealer: function() {
         var count = window.playerCount || game.defaultPlayerCount;
         var ids;
         if (count == 2) {
@@ -2905,7 +2905,7 @@ WebCardGame.prototype = {
             ids =   ['bottom-player', 'left-player', 'top-player', 'right-player'];
         }
         game.pickDealer(ids);
-    },
+    },*/
     extraSetup: function() {},
     extend: function(obj) {
         for (var i in this) {

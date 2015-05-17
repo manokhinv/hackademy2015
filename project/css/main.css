@@ -31,7 +31,7 @@ body {
 /******* Base stuff for everything *******/
 
 p, ol, ul {
-	font-size:18px;
+	/*font-size:18px;*/
 	line-height: 23px;
 }
 
@@ -282,8 +282,8 @@ h3 {
 }
 
 #top-player-bubble p { margin-top:34px;}
-#left-player-bubble { background-image:url(../img/speechleft.png); top:180px; left:50px;}
-#right-player-bubble { background-image:url(../img/speechright.png); top:180px; right:50px;}
+#left-player-bubble { background-image:url(../img/speechleft.png); top:180px; left:0px;}
+#right-player-bubble { background-image:url(../img/speechright.png); top:180px; right:0px;}
 #top-player-bubble { background-image:url(../img/speechtop.png); top:25px; left:200px;}
 #bottom-player-bubble { background-image:url(../img/speechleft.png); bottom:40px; left:370px; }
 
@@ -314,7 +314,7 @@ h3 {
 
 #right-player {
 	top:250px;
-	left:900px;
+	left:800px;
 	display:none;
 }
 
@@ -816,9 +816,9 @@ button:active {
 }
 
 
-.bubble div { position:absolute; top:18px; left:27px; /*background-image:url(players-medium.png);*/ width:35px; height:35px;}
-.bubble img { position:absolute; top:18px; left:35px; }
-.bubble p { font-weight: bold;padding-left: 25px;text-align: left;margin-left: 65px; margin-top: 13px;}
+.bubble div { position:absolute; top:18px; left:27px; /*background-image:url(../img/players2.png);*/ width:1px; height:1px;}
+.bubble img { position:absolute; top:15px; left:45px; }
+.bubble p { font-weight: bold;padding-left: 25px;text-align: left;margin-left: 41px; margin-top: 11px;}
 .bubble p span { font-size: 22px; }
 #top-player-bubble p { margin-top: 38px !important;}
 #top-player-bubble div,#top-player-bubble img {top:45px;}
