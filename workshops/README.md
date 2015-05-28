@@ -1,6 +1,3 @@
-# hackademy2015
-Dyn Hackademy 2015
-
 ##### Some useful links:
 - [a client-based python app](https://jupyter.org)
 - [some slides on git and github](https://gist.github.com/gibson042/e46deff99451a7edbecf)
