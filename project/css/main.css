@@ -5,6 +5,14 @@
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+.attribution {
+	position: fixed;
+	bottom: 25;
+	left: 10;
+	text-size: small;
+	width: 300px;
+}
+
 body {
    /* padding: 10px;
     background-color: #afcffe;
